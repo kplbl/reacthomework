@@ -1,7 +1,11 @@
+@import "react-circular-progressbar/dist/styles.css";
+
 $dark-blue: #032541;
 $light-gray: #ececec;
 $darker-gray: #767676;
 $light-blue: #01b4e4;
+$lighter-green: #21c774;
+$darker-green: #112b24;
 
 * {
   margin: 0;
@@ -107,24 +111,48 @@ footer {
 }
 
 .moviecard {
-  width: 150px;
+  max-width: 200px;
+  min-width: 150px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
   border-radius: 8px;
   overflow: clip;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid $light-gray;
 
-  &__image {
-  }
   &__image img {
     max-width: 100%;
     height: auto;
   }
 
   &__content {
+    position: relative;
+    flex-wrap: wrap;
     padding-top: 26px;
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 12px;
+
+    &__circle {
+      position: absolute;
+      top: -24px;
+      left: 10px;
+      width: 38px;
+      height: 38px;
+      background-color: black;
+      border-radius: 50%;
+      border: 2px solid black;
+      color: white;
+      font-size: 0.9em;
+      font-weight: 700;
+
+      span {
+        font-size: 0.45em;
+        vertical-align: super;
+      }
+    }
+
     h2 {
       font-size: 1em;
       font-weight: 700;
