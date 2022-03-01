@@ -52,6 +52,14 @@ footer {
     display: flex;
   }
 
+  &__list {
+    padding-left: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   &__aside {
     display: flex;
     flex-direction: column;
@@ -94,6 +102,33 @@ footer {
         background-color: $light-gray;
         color: $darker-gray;
       }
+    }
+  }
+}
+
+.moviecard {
+  width: 150px;
+  border-radius: 8px;
+  overflow: clip;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid $light-gray;
+
+  &__image {
+  }
+  &__image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__content {
+    padding-top: 26px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 12px;
+    h2 {
+      font-size: 1em;
+      font-weight: 700;
+      overflow-wrap: break-word;
     }
   }
 }
