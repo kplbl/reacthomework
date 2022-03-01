@@ -6,12 +6,16 @@ function App() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const response = axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }&page=1`
-    );
-    setMovies(response.data);
+    const getMovies = async () => {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${
+          import.meta.env.VITE_TMDB_KEY
+        }&page=1`
+      );
+      setMovies(response.data.results);
+    };
+
+    getMovies();
   }, []);
 
   return (
@@ -47,7 +51,7 @@ function App() {
               Search
             </div>
           </aside>
-          <List className="main__list" />
+          <List className="main__list" movies={movies} />
         </div>
       </main>
       <footer></footer>
