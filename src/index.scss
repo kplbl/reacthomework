@@ -1,4 +1,7 @@
 $dark-blue: #032541;
+$light-gray: #ececec;
+$darker-gray: #767676;
+$light-blue: #01b4e4;
 
 * {
   margin: 0;
@@ -25,4 +28,72 @@ header > nav {
   display: flex;
   gap: 15px;
   margin-right: 30px;
+}
+
+footer {
+  height: 100px;
+  background-color: $dark-blue;
+}
+
+.main {
+  &__wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+
+    &__card {
+      box-sizing: border-box;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      margin-top: 12px;
+      min-width: 260px;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px #ececec;
+
+      &__text {
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+
+    &__search-btn {
+      display: flex;
+      border-radius: 20px;
+      height: 44px;
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: 600;
+      justify-content: center;
+      align-items: center;
+
+      &__enabled {
+        background-color: $light-blue;
+        color: white;
+      }
+
+      &__disabled {
+        background-color: $light-gray;
+        color: $darker-gray;
+      }
+    }
+  }
 }
