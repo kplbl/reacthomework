@@ -45,6 +45,9 @@ footer {
     padding-right: 40px;
     padding-top: 30px;
     padding-bottom: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &__title {
@@ -80,10 +83,21 @@ footer {
       border-radius: 10px;
       box-shadow: 2px 2px 5px #ececec;
 
-      &__text {
-        font-size: 1.1em;
-        font-weight: 600;
-        cursor: pointer;
+      &__box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__text {
+          font-size: 1.1em;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        &__icon {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
 
