@@ -1,4 +1,19 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+import List from "./components/List";
+
 function App() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const response = axios.get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${
+        import.meta.env.VITE_TMDB_KEY
+      }&page=1`
+    );
+    setMovies(response.data);
+  }, []);
+
   return (
     <div className="App">
       <header>
@@ -15,6 +30,26 @@ function App() {
           <div>Search</div>
         </div>
       </header>
+      <main className="main__wrapper">
+        <h2 className="main__title">Popular Movies</h2>
+        <div className="main__content">
+          <aside className="main__aside">
+            <div className="main__aside__card">
+              <div className="main__aside__card__text">Sort</div>{" "}
+            </div>
+            <div className="main__aside__card">
+              <div className="main__aside__card__text">Filters</div>
+            </div>
+            <div className="main__aside__card">
+              <div className="main__aside__card__text">Where to watch</div>
+            </div>
+            <div className="main__aside__search-btn main__aside__search-btn__enabled">
+              Search
+            </div>
+          </aside>
+          <List className="main__list" />
+        </div>
+      </main>
       <footer></footer>
     </div>
   );
