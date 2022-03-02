@@ -3,7 +3,7 @@
 API ključ mora biti v .env.local v formatu:
 
 ```
-VITE_TMDB_KEY=12345657
+VITE_TMDB_KEY=123456578
 ```
 
 Zagon:
