@@ -8,6 +8,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -80,7 +81,15 @@ function App() {
               Search
             </div>
           </aside>
-          <List className="main__list" movies={movies} />
+          <div className="main__column">
+            <List className="main__list" movies={movies} />
+            <button
+              className="main__loadmore"
+              onClick={() => setPage((state) => state + 1)}
+            >
+              Load More
+            </button>
+          </div>
         </div>
       </main>
       <footer></footer>

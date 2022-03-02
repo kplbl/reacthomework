@@ -63,12 +63,29 @@ footer {
     display: flex;
   }
 
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__list {
     padding-left: 30px;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  &__loadmore {
+    // width: 90%;
+    background-color: $light-blue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 10px 0px;
+    margin: 0px 23px;
   }
 
   &__aside {
