@@ -10,7 +10,14 @@ function MovieCard(props) {
   return (
     <div className="moviecard">
       <div className="moviecard__image">
-        <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
+        {poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/original${poster_path}`}
+            alt=""
+          />
+        ) : (
+          <div></div>
+        )}
       </div>
       <div className="moviecard__content">
         <div className="moviecard__content__circle">
