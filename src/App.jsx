@@ -122,7 +122,7 @@ function App() {
           <div className="main__column">
             <List className="main__list" movies={movies} />
             <button
-              className="main__loadmore"
+              className={`${movies.length < 20 ? "hide" : ""} main__loadmore`}
               onClick={() => setPage((state) => state + 1)}
             >
               Load More
