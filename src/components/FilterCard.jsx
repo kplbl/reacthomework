@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ChevronRightIcon } from "@heroicons/react/outline";
+import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/outline";
 
 function FilterCard(props) {
   const [open, setOpen] = useState(false);
@@ -26,11 +26,17 @@ function FilterCard(props) {
     <div className="main__aside__card">
       <div className="main__aside__card__box">
         <div className="main__aside__card__box__text">Filters</div>
-
-        <ChevronRightIcon
-          onClick={toggleOpen}
-          className="main__aside__card__box__icon"
-        />
+        {open ? (
+          <ChevronDownIcon
+            onClick={toggleOpen}
+            className="main__aside__card__box__icon"
+          />
+        ) : (
+          <ChevronRightIcon
+            onClick={toggleOpen}
+            className="main__aside__card__box__icon"
+          />
+        )}
       </div>
 
       <div className={`${!open && "hide"} main__aside__card__genres`}>
