@@ -2,34 +2,25 @@ import React from "react";
 import { useState } from "react";
 import { ChevronRightIcon } from "@heroicons/react/outline";
 
-function FilterCard() {
+function FilterCard(props) {
   const [open, setOpen] = useState(false);
+  const { genres, selectedGenres, setSelectedGenres } = props;
 
   const toggleOpen = () => {
     setOpen((state) => !state);
   };
 
-  const genres = [
-    "action",
-    "adventure",
-    "animation",
-    "comedy",
-    "crime",
-    "documentary",
-    "drama",
-    "family",
-    "fantasy",
-    "history",
-    "horror",
-    "music",
-    "mystery",
-    "romance",
-    "science fiction",
-    "tv movie",
-    "thriller",
-    "war",
-    "western",
-  ];
+  const toggleSelected = (id) => {
+    setSelectedGenres((state) => {
+      return state.includes(id)
+        ? state.filter((s) => s !== id)
+        : [...state, id];
+    });
+  };
+
+  const isSelected = (id) => {
+    return selectedGenres.includes(id);
+  };
 
   return (
     <div className="main__aside__card">
@@ -42,7 +33,20 @@ function FilterCard() {
         />
       </div>
 
-      <div className={`${!open && "hide"}`}>Test</div>
+      <div className={`${!open && "hide"} main__aside__card__genres`}>
+        {genres.map((genre) => (
+          <button
+            key={genre.id}
+            onClick={() => toggleSelected(genre.id)}
+            type="button"
+            className={`main__aside__card__genres__btn ${
+              isSelected(genre.id) && "main__aside__card__genres__btn__selected"
+            }`}
+          >
+            {genre.name}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

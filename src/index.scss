@@ -13,7 +13,7 @@ $darker-green: #112b24;
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 header {
@@ -82,7 +82,7 @@ footer {
       padding-top: 14px;
       padding-bottom: 14px;
       margin-top: 12px;
-      min-width: 260px;
+      width: 260px;
       border: 1px solid #dddddd;
       border-radius: 10px;
       box-shadow: 2px 2px 5px #ececec;
@@ -101,6 +101,32 @@ footer {
         &__icon {
           width: 20px;
           height: 20px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__genres {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__btn {
+          background-color: white;
+          border: 1px solid;
+          border-color: $darker-gray;
+          border-radius: 14px;
+          padding: 4px 12px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+          font-size: 0.9em;
+
+          &__selected {
+            background-color: $light-blue;
+            color: white;
+            border-color: white;
+          }
         }
       }
     }
