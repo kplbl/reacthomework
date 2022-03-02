@@ -6,6 +6,8 @@ import FilterCard from "./components/FilterCard";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -16,8 +18,17 @@ function App() {
       );
       setMovies(response.data.results);
     };
+    const getGenres = async () => {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${
+          import.meta.env.VITE_TMDB_KEY
+        }`
+      );
+      setGenres(response.data.genres);
+    };
 
     getMovies();
+    getGenres();
   }, []);
 
   return (
@@ -52,7 +63,11 @@ function App() {
                 <ChevronRightIcon className="main__aside__card__box__icon" />
               </div>
             </div>
-            <FilterCard />
+            <FilterCard
+              genres={genres}
+              selectedGenres={selectedGenres}
+              setSelectedGenres={setSelectedGenres}
+            />
             <div className="main__aside__card">
               <div className="main__aside__card__box">
                 <div className="main__aside__card__box__text">
