@@ -127,7 +127,6 @@ function App() {
             >
               Load More
             </button>
-            <div className="main__pusher"></div>
           </div>
         </div>
       </main>
