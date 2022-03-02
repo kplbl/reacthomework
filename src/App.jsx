@@ -10,25 +10,37 @@ function App() {
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [page, setPage] = useState(1);
 
-  const getMovies = async () => {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }&page=${page}&with_genres=${selectedGenres.join(",")}`
-    );
-    if (page > 1) {
-      setMovies((state) => [...state, ...response.data.results]);
-    } else {
-      setMovies(response.data.results);
-    }
+  const getMovies = () => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${
+          import.meta.env.VITE_TMDB_KEY
+        }&page=${page}&with_genres=${selectedGenres.join(",")}`
+      )
+      .then((response) => {
+        if (page > 1) {
+          setMovies((state) => [...state, ...response.data.results]);
+        } else {
+          setMovies(response.data.results);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
-  const getGenres = async () => {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }`
-    );
-    setGenres(response.data.genres);
+  const getGenres = () => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${
+          import.meta.env.VITE_TMDB_KEY
+        }`
+      )
+      .then((response) => {
+        setGenres(response.data.genres);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const submitSearch = () => {
@@ -109,6 +121,7 @@ function App() {
             >
               Load More
             </button>
+            <div className="main__pusher"></div>
           </div>
         </div>
       </main>
