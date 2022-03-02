@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ChevronRightIcon } from "@heroicons/react/outline";
+import {
+  ChevronRightIcon,
+  SearchIcon,
+  PlusIcon,
+} from "@heroicons/react/outline";
 import List from "./components/List";
 import FilterCard from "./components/FilterCard";
 
@@ -73,9 +77,11 @@ function App() {
           <div className="nav__link">More</div>
         </nav>
         <div className="header__extra">
+          <PlusIcon className="header__extra__icon" />
+          <div className="header__extra__lang">EN</div>
           <div>Login</div>
           <div>Join TMDB</div>
-          <div>Search</div>
+          <SearchIcon className="header__extra__icon" />
         </div>
       </header>
       <main className="main__wrapper">
@@ -125,7 +131,6 @@ function App() {
           </div>
         </div>
       </main>
-      <footer></footer>
     </div>
   );
 }
