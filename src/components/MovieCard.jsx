@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   CircularProgressbarWithChildren,
   buildStyles,
@@ -16,7 +17,7 @@ function MovieCard(props) {
             alt=""
           />
         ) : (
-          <div></div>
+          <img src={"/dummy.png"} alt="" />
         )}
       </div>
       <div className="moviecard__content">
